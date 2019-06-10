@@ -2,13 +2,13 @@ from sklearn.svm import SVC
 from MNISTData import *
 import random
 import warnings
-
 import collections
+
 def test(Num):
-#if __name__=="__main__":
+
     warnings.filterwarnings("ignore",category=FutureWarning,module="sklearn",lineno=193)
     trainingData,trainingLabel,testData,testLabel=getData()
-    hit=0
+   
     im=trainingData[0:Num,:]
     label=trainingLabel[0:Num]
     
@@ -36,12 +36,8 @@ def test(Num):
             test_error.append(test_label_sample[i])
    
     
-    
-    #if test_label_sample!=clf.predict(test_sample):
-     #   test_error.append(test_sample)
     #print("test complete!")
-    #print("score:{:.6f}".format(score))
-    #print("SVM:")
+   
     
     print("\nTrainingData:",Num)
     print("Correct Rate:{:.2f}%".format(score*100))
@@ -60,12 +56,19 @@ def cal_correct(test_error,test_data):
         
            
 if __name__=="__main__":
-    #train_num=[1000,5000,10000,20000,30000,40000,50000,60000]
+
+    '''
+     ------统计不同数量训练样本下的识别率
+     train_num=[1000,5000,10000,20000,30000,40000,50000,60000]
+     print("VCM")
+     for i in train_num:
+     	    test(i)
+    '''
+    
     print("VCM")
     test_error=[]        #分类错误的数字标签
     test_data=[]         #所有的数字标签，用以统计测试集中每种数字的个数
-    #for i in train_num:
-    #	    test(i)
+    
     test(500)
     cal_correct(test_error,test_data)
     

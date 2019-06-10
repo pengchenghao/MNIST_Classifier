@@ -66,12 +66,16 @@ def cal_correct(test_error,test_data):
         print(n,'\t',1-b[n]/q[n])
         
 if __name__=="__main__":
-    #train_num=[500,1000,1500,5000,10000,20000,30000,40000,50000,60000]
+
+    '''
+     train_num=[500,1000,1500,5000,10000,20000,30000,40000,50000,60000]
+     for i in train_num:
+         test(i)
+     '''
     test_error=[]
     testlabel=[]
     print("Bayes")
-    #for i in train_num:
-     #   test(i)
+    
     test(500)
     cal_correct(test_error,testlabel)
 
